@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'music/style.css' %}">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand new" href="{% url 'music:index' %}">Zhantai</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:index' %}">Albums</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:index' %}">Songs</a>
+                </li>
+            </ul>
+            <form class="form-inline my-2 my-lg-0" role="search" method="GET" action="#">
+                <div class="form-group">
+                    <input class="form-control mr-sm-2" type="text" role="search" aria-label="Search" name="q" value="">
+                </div>
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:album_add' %}">Add Album</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'music:index' %}">Logout</a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+    {% block body %}
+    {% endblock %}
+
+</body>
+
+</html>
